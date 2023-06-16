@@ -33,7 +33,7 @@ This is a Python script that allows you to send messages to multiple recipients 
 1. Run the script:
 
    ```shell
-   python main.py
+   python run.py
    ```
 
 2. The WhatsApp Message Sender window will appear.
