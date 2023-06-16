@@ -1,6 +1,10 @@
+
+
 # WhatsApp Message Sender
 
 This is a Python script that allows you to send messages to multiple recipients on WhatsApp using Selenium and PyQt5. It provides a user interface where you can enter the recipients' phone numbers and the message you want to send.
+
+![WhatsApp Message Sender Preview](https://github.com/samuelarjasbi/Whatsapp_message_sender/blob/main/docs/wsms.JPG?raw=true)
 
 ## Prerequisites
 - Python 3.x
@@ -33,7 +37,7 @@ This is a Python script that allows you to send messages to multiple recipients 
 1. Run the script:
 
    ```shell
-   python run.py
+   python main.py
    ```
 
 2. The WhatsApp Message Sender window will appear.
