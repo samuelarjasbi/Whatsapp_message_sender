@@ -7,6 +7,10 @@ from openpyxl import load_workbook
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from PyQt5.QtWidgets import (
@@ -36,6 +40,8 @@ from PyQt5.QtWidgets import (
     QListWidgetItem,
     QWidget,
 )
+
+
 
 dark_stylesheet = """
 QMainWindow {
@@ -121,11 +127,12 @@ def initialize_driver():
 
 
 def send_message(driver, wait, recipient, message):
+    wait = WebDriverWait(driver, 10) 
     phone = urllib.parse.quote(recipient)
     msg = urllib.parse.quote(message)
     url = (
         "https://web.whatsapp.com/send?phone="
-        + phone[:-2]
+        + phone
         + "&text="
         + msg
         + "&app_absent=0"
@@ -133,6 +140,7 @@ def send_message(driver, wait, recipient, message):
     print(url)
 
     driver.get(url)
+    wait.until(EC.presence_of_element_located((By.TAG_NAME, "body")))
     time.sleep(5)
 
     try:
