@@ -129,10 +129,14 @@ def initialize_driver():
 def send_message(driver, wait, recipient, message):
     wait = WebDriverWait(driver, 10) 
     phone = urllib.parse.quote(recipient)
+
+    if isinstance(recipient, float):
+        int(recipient)
+        
     msg = urllib.parse.quote(message)
     url = (
         "https://web.whatsapp.com/send?phone="
-        + phone
+        + phone[:-2]
         + "&text="
         + msg
         + "&app_absent=0"
